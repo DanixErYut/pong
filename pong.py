@@ -37,9 +37,9 @@ clock = time.Clock()
 speed_x = 3
 speed_y = 3
 #Создаем спрайты для игры
-#racket1 = Player("",30,200,4,50,150)
-#racket2 = Player("",520,200,4,50,150)
-#ball = = Player("",200,200,4,50,50)
+racket1 = Player("",30,200,4,50,150)
+racket2 = Player("",520,200,4,50,150)
+ball = = Player("",200,200,4,50,50)
 #Создаем надписи
 font.init()
 font = font.Font(None,35)
@@ -49,5 +49,15 @@ while True:
     for e in event.get():
         if e.type ==QUIT:
             game = False
+
+    if game == True:
+        window.fill(200,255,255)
+        racket1.update_l()
+        racket2.update_r()
+        ball.rect.x += speed_x
+        ball.rect.y += speed_y
+
+
+
     display.update()
     clock.tick(60)
